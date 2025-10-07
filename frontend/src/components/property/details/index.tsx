@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-export default function PropertyDetailClient({ id }: { id: string }) {
+function PropertyDetailClient({ id }: { id: string }) {
   const router = useRouter();
   const { data: property, isLoading, error } = usePropertyById(id);
 
@@ -36,3 +36,5 @@ export default function PropertyDetailClient({ id }: { id: string }) {
     </div>
   );
 }
+
+export default PropertyDetailClient;
