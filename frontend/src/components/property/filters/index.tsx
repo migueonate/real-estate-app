@@ -12,6 +12,7 @@ export function PropertyFilter({ onFilter }: PropertyFilterProps) {
   return (
     <div className="sticky top-0 z-50 py-3 px-4 bg-white">
       <form
+        data-testid="filter-form"
         onSubmit={(e) => {
           e.preventDefault();
           submitFilters();
