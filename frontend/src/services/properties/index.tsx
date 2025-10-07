@@ -19,3 +19,18 @@ export function useProperties(filters: PropertyFilters) {
     refetchOnWindowFocus: false, // avoid refetch when coming back from another tab
   });
 }
+
+export async function fetchPropertyById(id: string) {
+  const res = await fetch(`${PROPERTIES_API_URL}/${id}`);
+  if (!res.ok) throw new Error(`Failed to fetch property ${id}`);
+  return res.json();
+}
+
+export function usePropertyById(id: string) {
+  return useQuery({
+    queryKey: ["property", id],
+    queryFn: () => fetchPropertyById(id),
+    staleTime: 1000 * 60 * 2,
+    retry: 1, // reintento en caso de fallo
+  });
+}
