@@ -13,13 +13,7 @@ import { useMemo } from "react";
 import Link from "next/link";
 import { Eye } from "lucide-react";
 
-export function PropertyCard({
-  address,
-  image,
-  name,
-  price,
-  id,
-}: PropertyCardProps) {
+function PropertyCard({ address, image, name, price, id }: PropertyCardProps) {
   const imageSrc = useMemo(
     () => (image && image.startsWith("http") ? image : "/placeholder.jpg"),
     [image]
@@ -29,9 +23,15 @@ export function PropertyCard({
     <div className="rounded-xl overflow-hidden shadow-md bg-white hover:shadow-lg transition">
       <img src={imageSrc} alt={name} className="w-full h-48 object-cover" />
       <div className="p-4 space-y-2">
-        <h3 className="text-lg font-semibold">{name}</h3>
-        <p className="text-sm text-gray-600">{address}</p>
-        <p className="text-blue-600 font-bold">${price}</p>
+        <h3 data-testid="propertyName" className="text-lg font-semibold">
+          {name}
+        </h3>
+        <p data-testid="propertyAddress" className="text-sm text-gray-600">
+          {address}
+        </p>
+        <p data-testid="propertyPrice" className="text-blue-600 font-bold">
+          ${price}
+        </p>
 
         <div className="flex items-center gap-2 pt-2">
           <Link href={`/properties/${id}`} className="flex-1">
@@ -42,7 +42,12 @@ export function PropertyCard({
 
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="outline" size="icon" title="Fast view">
+              <Button
+                data-testid="quick-view-btn"
+                variant="outline"
+                size="icon"
+                title="quick view"
+              >
                 <Eye className="h-4 w-4" />
               </Button>
             </DialogTrigger>
@@ -66,3 +71,5 @@ export function PropertyCard({
     </div>
   );
 }
+
+export default PropertyCard;
