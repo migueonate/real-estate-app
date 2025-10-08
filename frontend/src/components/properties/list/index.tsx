@@ -1,4 +1,4 @@
-import { PropertyCard } from "./components/card/card";
+import PropertyCard from "./components/card/card";
 import { PropertyListProps } from "./types";
 
 export function PropertyList({ properties }: PropertyListProps) {

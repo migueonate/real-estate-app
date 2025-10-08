@@ -1,4 +1,4 @@
-import PropertyDetailClient from "@/components/property/details";
+import PropertyDetailClient from "@/components/properties/details";
 
 export default async function Page({
   params,

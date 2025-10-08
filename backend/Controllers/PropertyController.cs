@@ -7,7 +7,7 @@ using RealEstateApi.Mappers;
 namespace RealEstateApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/properties")]
     public class PropertyController : ControllerBase
     {
         private readonly PropertyService _propertyService;

@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useProperties } from "@/services/properties";
-import { PropertyFilter } from "@/components/property/filters";
-import { PropertyList } from "@/components/property/list";
+import { PropertyFilter } from "@/components/properties/filters";
+import { PropertyList } from "@/components/properties/list";
 import { PropertyFilters } from "@/services/properties/types";
 
 export default function HomePage() {
